@@ -1,15 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navber = () => {
 
     const links = [
         <>
-        <NavLink to={'/'}><li><a>Home</a></li></NavLink>
+        <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
         </>
     ]
+
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar py-7">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -19,7 +20,7 @@ const Navber = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Haven Homes</a>
+                <a className="btn btn-ghost text-xl">Haven Residential</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -27,7 +28,7 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Log In</a>
+                <Link to={'/login'}><a  className="btn">Log In</a></Link>
             </div>
         </div>
     );

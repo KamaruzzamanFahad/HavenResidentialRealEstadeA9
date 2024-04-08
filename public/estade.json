@@ -1,0 +1,119 @@
+[
+    {
+      "Image": "SpaciousFamilyHaven.jpg",
+      "estate_title": "Spacious Family Haven",
+      "id": 1,
+      "segment_name": "Single-family homes",
+      "description": "3-bedroom house with a large backyard in a quiet Dhaka neighborhood.",
+      "price": 15000000,
+      "Status": "sale",
+      "Area": "2200 sq ft",
+      "location": "Dhaka",
+      "facilities": [
+        "Living room",
+        "Dining room",
+        "Kitchen",
+        "3 Bedrooms",
+        "2 Bathrooms",
+        "Garage",
+        "Backyard"
+      ],
+      "category": "Single-family homes"
+    },
+    {
+      "Image": "ModernChittagongTownhouse.jpg",
+      "estate_title": "Modern Chittagong Townhouse",
+      "id": 2,
+      "segment_name": "Townhouses",
+      "description": "2-bedroom townhouse with a balcony and city views in Chittagong.",
+      "price": 8500000,
+      "Status": "sale",
+      "Area": "1500 sq ft",
+      "location": "Chittagong",
+      "facilities": [
+        "Living room",
+        "Kitchen",
+        "2 Bedrooms",
+        "2 Bathrooms",
+        "Balcony"
+      ],
+      "category": "Townhouses"
+    },
+    {
+      "Image": "ChicSylhetStudio.jpg",
+      "estate_title": "Chic Sylhet Studio",
+      "id": 3,
+      "segment_name": "Apartments",
+      "description": "Studio apartment in a vibrant downtown location in Sylhet. Perfect for professionals.",
+      "price": 12000,
+      "Status": "rent",
+      "Area": "400 sq ft",
+      "location": "Sylhet",
+      "facilities": [
+        "Living area",
+        "Kitchenette",
+        "Bathroom"
+      ],
+      "category": "Apartments"
+    },
+    {
+      "Image": "ComfyStudentQuarters.jpg",
+      "estate_title": "Comfy Student Quarters (Rajshahi)",
+      "id": 4,
+      "segment_name": "Student housing",
+      "description": "Fully furnished apartment near Rajshahi University with high-speed internet.",
+      "price": 8000,
+      "Status": "rent",
+      "Area": "600 sq ft",
+      "location": "Rajshahi",
+      "facilities": [
+        "Living room",
+        "Bedroom",
+        "Bathroom",
+        "Shared kitchen",
+        "High-speed internet"
+      ],
+      "category": "Student housing"
+    },
+    {
+      "Image": "ActiveSeniorLiving.jpg",
+      "estate_title": "Active Senior Living (Khulna)",
+      "id": 5,
+      "segment_name": "Senior living communities",
+      "description": "Independent living community in Khulna with on-site activities and medical care.",
+      "price": 25000,
+      "Status": "rent",
+      "Area": "750 sq ft",
+      "location": "Khulna",
+      "facilities": [
+        "Living room",
+        "Bedroom",
+        "Bathroom",
+        "Kitchen",
+        "Community center",
+        "Medical care"
+      ],
+      "category": "Senior living communities"
+    },
+    {
+      "Image": "Cox'sBazarBeachRetreat.jpg",
+      "estate_title": "Cox's Bazar Beach Retreat",
+      "id": 6,
+      "segment_name": "Vacation rentals",
+      "description": "Luxurious beachfront apartment with stunning ocean views in Cox's Bazar.",
+      "price": 3000,
+      "Status": "rent",
+      "Area": "1000 sq ft",
+      "location": "hahha uganda",
+      "facilities": [
+        "Living room",
+        "Bedroom",
+        "Bathroom",
+        "Shared kitchen",
+        "High-speed internet"
+      ],
+      "category": "Vacation rentals"
+    }
+  ]
+
+  

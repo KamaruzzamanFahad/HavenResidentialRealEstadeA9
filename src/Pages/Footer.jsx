@@ -62,7 +62,7 @@ const Footer = () => {
                     </label>
                     <div className="join mt-2">
                         <input type="text" placeholder="Your e-mail" className="input input-bordered join-item" />
-                        <button className="btn btn-primary join-item">Subscribe</button>
+                        <button className="bg-blue-500 text-white rounded-l-none ml-[-2px]">Subscribe</button>
                     </div>
                     <img src="socai.png" width={'30%'} alt="" className='mt-4' />
                 </fieldset>

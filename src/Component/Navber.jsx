@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Authprovider';
 
 const Navber = () => {
 
     const links = [
         <>
-        <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
+            <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
         </>
     ]
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <div className="navbar py-7">
@@ -24,11 +26,15 @@ const Navber = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                {links}
+                    {links}
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'}><a  className="btn">Log In</a></Link>
+                {
+                    user ? <a onClick={logout} className="btn">Log Out</a>
+                        : <Link to={'/login'}><a className="btn">Log In</a></Link>
+                }
+
             </div>
         </div>
     );

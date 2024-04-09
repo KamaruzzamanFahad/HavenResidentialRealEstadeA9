@@ -1,25 +1,36 @@
-
+import Home from './Home';
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
 
-    const { register } = useContext(AuthContext);
-
+    const { registerempass, updateuserinfo, looding, user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+    
     const reginhandle = (e) => {
         e.preventDefault();
         const Name = e.target.Name.value;
         const email = e.target.email.value;
         const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
-        const regex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
-            console.log(Name, email, photoURL, password, regex.test(password))
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+        console.log(Name, email, photoURL, password, regex.test(password))
         if (regex.test(password)) {
-            register();
+            registerempass(email, password)
+                .then(() => {
+                    toast.success("Registration done, prifile updating please wait");
+                    
+                    updateuserinfo(Name, photoURL)
+                        .catch(error => {
+                            toast.error(error.message)
+                        })
+                })
+                .catch(error => toast.error(error.message))
         } else {
-            toast.error("password should contain uppercase lowercase digits and special characters!");
+            alert("passwords at least 8 characters long and contain a mix of uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), and special characters (!@#$%^&*). Avoid using easily guessable information like your name, birthday, or common phrases!");
         }
 
     }

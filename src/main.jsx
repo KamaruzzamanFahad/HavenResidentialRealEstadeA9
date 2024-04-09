@@ -12,6 +12,7 @@ import Login from './Pages/Login.jsx';
 import Error from './Pages/Error.jsx';
 import Register from './Pages/Register.jsx';
 import Authprovider from './Authprovider.jsx';
+import Privateroute from './Pages/Privateroute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/login',
-        element:<Login></Login>
+        element:<Privateroute><Login></Login></Privateroute>
       },
       {
         path:'/register',
-        element:<Register></Register>
+        element:<Privateroute><Register></Register></Privateroute>
       },
     ]
   },

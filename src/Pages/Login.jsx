@@ -1,23 +1,37 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+    const { login, loginwithgoogle, loginwithgithub } = useContext(AuthContext);
 
     const loginhandle = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
         login(email, password)
+            .catch(error => {
+                console.log(error.message)
+                toast(error.message)
+            })
+    }
+    const goglelogin = () => {
+        loginwithgoogle()
+        .catch(error => toast.error(error.message))
+
+    }
+    const gitlogin = () => {
+        loginwithgithub()
+        .catch(error => toast.error(error.message))
+
     }
 
 
     return (
 
         <div>
-
+            <ToastContainer />
             <div>
                 <div className="hero mb-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -52,11 +66,11 @@ const Login = () => {
                                 <hr className="border-[1px] border-[#0000001b] w-full" />
                             </div>
 
-                            <div className="flex justify-center gap-6 items-center border-[1px] border-solid border-[#00000043] rounded-lg btn">
+                            <div onClick={goglelogin} className="flex justify-center gap-6 items-center border-[1px] border-solid border-[#00000043] rounded-lg btn">
                                 <img width={'10%'} src="gogle.png" alt="" />
                                 <p>Login with Google</p>
                             </div>
-                            <div className="flex justify-center gap-6 items-center border-[1px] mt-4 border-solid border-[#00000043] rounded-lg btn">
+                            <div onClick={gitlogin} className="flex justify-center gap-6 items-center border-[1px] mt-4 border-solid border-[#00000043] rounded-lg btn">
                                 <img width={'10%'} src="github.png" alt="" />
                                 <p>Login with Github</p>
                             </div>

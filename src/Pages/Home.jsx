@@ -1,4 +1,4 @@
-
+import env from "react-dotenv";
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,8 +10,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
 
-   
-    const [isdata, setisdata] = useState(false)
 
     const data = useLoaderData();
     const [estade, setestade] = useState(data)
@@ -21,7 +19,6 @@ const Home = () => {
         const selecta = s.target.value;
         const filterlist = data.filter(item => item.category == selecta);
         setestade(filterlist)
-        setisdata(true)
     }
 
 

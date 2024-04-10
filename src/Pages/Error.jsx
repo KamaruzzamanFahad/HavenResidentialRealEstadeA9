@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { Helmet } from "react-helmet-async";
 const Error = () => {
     return (
         <div>
+            <Helmet>
+                <title>Page Not Found</title>
+            </Helmet>
             <div className="flex flex-col justify-center items-center">
             <img src="https://b9a8kamaruzzaman.netlify.app/errorrr.jpg" alt="error image" />
             <h1 className="text-5xl font-bold text-center">404 - PAGE NOT FOUND</h1>

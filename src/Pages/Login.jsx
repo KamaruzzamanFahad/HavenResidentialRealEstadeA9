@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { login, loginwithgoogle, loginwithgithub } = useContext(AuthContext);
@@ -31,6 +32,9 @@ const Login = () => {
     return (
 
         <div>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <ToastContainer />
             <div>
                 <div className="hero mb-10">

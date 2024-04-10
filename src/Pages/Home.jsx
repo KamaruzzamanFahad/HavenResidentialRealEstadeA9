@@ -7,15 +7,17 @@ import { Navigation } from 'swiper/modules';
 import { BiArea } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
+   
 
     const data = useLoaderData();
     const [estade, setestade] = useState(data)
 
-   
-    const selected = (s)=> {
+
+    const selected = (s) => {
         const selecta = s.target.value;
         const filterlist = data.filter(item => item.category == selecta);
         setestade(filterlist)
@@ -24,6 +26,11 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
+=
+           
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
                     <div id="slide1" className="carousel-item relative h-[35vw] w-full">
@@ -92,7 +99,7 @@ const Home = () => {
                                             ))
                                         }
                                         {
-                                           item.facilities.length > 4 ? '' : <li>more</li>
+                                            item.facilities.length > 4 ? '' : <li>more</li>
                                         }
                                     </ul>
                                 </div>

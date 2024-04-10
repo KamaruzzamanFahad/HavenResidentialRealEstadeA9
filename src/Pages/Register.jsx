@@ -4,6 +4,8 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
+
 const Register = () => {
 
     const { registerempass, updateuserinfo, looding, user } = useContext(AuthContext);
@@ -40,6 +42,9 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <ToastContainer />
             <div>
                 <div className="hero mb-10">

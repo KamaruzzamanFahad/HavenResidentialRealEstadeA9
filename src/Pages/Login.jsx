@@ -36,7 +36,7 @@ const Login = () => {
                 <div className="hero mb-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
 
-                        <div className="card shrink-0 max-w-sm shadow-2xl bg-base-100 p-10 w-96">
+                        <div className="card shrink-0 max-w-sm shadow-2xl bg-base-100 p-10 w-80 sm:w-96">
                             <h1 className='text-3xl mb-2 font-semibold'>Login your account</h1>
                             <form onSubmit={loginhandle} className="card-body mb-2 p-0">
                                 <div className="form-control">

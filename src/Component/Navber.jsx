@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Authprovider';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navber = () => {
 
@@ -9,8 +11,9 @@ const Navber = () => {
             <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
         </>
     ]
-    const { user, logout } = useContext(AuthContext)
 
+ 
+    const { user, logout } = useContext(AuthContext)
     return (
         <div className="navbar py-7">
             <div className="navbar-start">
@@ -31,9 +34,21 @@ const Navber = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <a onClick={logout} className="btn">Log Out</a>
+                    user ? <>
+
+                        <a 
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content= {`${user.displayName}`}
+                            data-tooltip-place="left"
+                        >
+                            <img src={user.photoURL} width={'40px'} alt="" />
+                        </a>
+                        <a onClick={logout} className="btn">Log Out</a>
+                    </>
                         : <Link to={'/login'}><a className="btn">Log In</a></Link>
                 }
+                <Tooltip id="my-tooltip" />
+
 
             </div>
         </div>

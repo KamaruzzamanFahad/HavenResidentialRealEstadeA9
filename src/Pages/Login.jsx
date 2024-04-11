@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    const { login, loginwithgoogle, loginwithgithub } = useContext(AuthContext);
+
 
     const loginhandle = (e) => {
         e.preventDefault();
@@ -19,12 +19,15 @@ const Login = () => {
     }
     const goglelogin = () => {
         loginwithgoogle()
-        .catch(error => toast.error(error.message))
+            .then(() => {
+    
+            })
+            .catch(error => toast.error(error.message))
 
     }
     const gitlogin = () => {
         loginwithgithub()
-        .catch(error => toast.error(error.message))
+            .catch(error => toast.error(error.message))
 
     }
 

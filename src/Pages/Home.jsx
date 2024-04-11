@@ -6,12 +6,13 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { BiArea } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData,useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
-   
+
+    const navigate = useNavigate();
 
     const data = useLoaderData();
     const [estade, setestade] = useState(data)
@@ -29,7 +30,7 @@ const Home = () => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-=
+
            
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
@@ -103,7 +104,7 @@ const Home = () => {
                                         }
                                     </ul>
                                 </div>
-                                <button className='w-full bg-blue-500 text-white'>View Property</button>
+                                <button onClick={ ()=> navigate('/detils', {state: item})} className='w-full bg-blue-500 text-white'>View Property</button>
                             </div>
                         ))
                     }

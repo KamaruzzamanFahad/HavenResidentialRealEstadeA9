@@ -19,7 +19,6 @@ const Authprovider = ({ children }) => {
 
     }
     const loginwithgoogle = () => {
-        setlooding(true);
        return signInWithPopup(auth,provider);
     }
     const loginwithgithub = () =>{
@@ -36,6 +35,7 @@ const Authprovider = ({ children }) => {
             setlooding(false);
         } else {
             setuser(null)
+            setlooding(false);
         }
     })
     const updateuserinfo = (name, photourl) => {

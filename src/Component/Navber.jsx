@@ -9,6 +9,7 @@ const Navber = () => {
     const links = [
         <>
             <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
+            <NavLink key="profile" to={'/profile'}><li><a>Profile</a></li></NavLink>
         </>
     ]
 
@@ -35,7 +36,7 @@ const Navber = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-
+                   
                         <a 
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content= {`${user.displayName}`}

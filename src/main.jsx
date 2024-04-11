@@ -16,6 +16,7 @@ import Privateroute from './Pages/Privateroute.jsx';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Protect from './Pages/Protect.jsx';
 import Detil from './Pages/Detil.jsx';
+import Profile from './Pages/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path:"/detils",
         element: <Protect><Detil></Detil></Protect>
+      },
+      {
+        path:'/profile',
+        element:<Protect><Profile></Profile></Protect>
       }
     ]
   },

@@ -5,7 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-
+    const {user,
+        login,
+        looding,
+        loginwithgoogle,
+        loginwithgithub} = useContext(AuthContext)
 
     const loginhandle = (e) => {
         e.preventDefault();

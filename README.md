@@ -18,7 +18,7 @@ Haven Residential is a residential real estate website designed to streamline th
 *Custom Login System: Implement a secure login system for authorized users to access specific features or manage property listings (if applicable).
 
 *npm package name which i have used for the challenges task*
-
+*Animate.css
 *React-leaflet
 *React Hook form
 *Swiper slider

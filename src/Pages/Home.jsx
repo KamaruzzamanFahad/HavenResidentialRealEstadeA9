@@ -8,6 +8,7 @@ import { BiArea } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { useLoaderData,useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import 'animate.css';
 
 const Home = () => {
 
@@ -19,9 +20,17 @@ const Home = () => {
 
 
     const selected = (s) => {
-        const selecta = s.target.value;
+        if(s.target.value == "All"){
+            const alls = data.filter(item => item.category != null)
+            setestade(alls)
+            console.log(estade)
+            
+        }else{
+            const selecta = s.target.value;
         const filterlist = data.filter(item => item.category == selecta);
         setestade(filterlist)
+        }
+        
     }
 
 
@@ -58,8 +67,9 @@ const Home = () => {
             <div>
                 <div className='flex flex-col md:flex-row justify-center items-center py-10 gap-5'>
                     <input type="text" placeholder='Location' name="" id="" className=' border border-solid border-[#0000004e] p-[11px] rounded-lg outline-none w-full md:w-auto' />
-                    <select onChange={selected} className="select select-bordered w-full md:w-auto">
+                    <select onChange={selected} className=" select select-bordered w-full md:w-auto">
                         <option disabled selected>Chose Catagorys</option>
+                        <option>All</option>
                         <option>Single-family homes</option>
                         <option>Townhouses</option>
                         <option>Apartments</option>
@@ -73,7 +83,7 @@ const Home = () => {
                 <div className='grid grid-cols-1 justify-center items-center md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10'>
                     {
                         estade.map((item, i) => (
-                            <div key={i} className='bg-[#ffffff] p-4 pb-6 rounded-lg'>
+                            <div key={i} className='bg-[#ffffff] p-4 pb-6 rounded-lg animate__bounceIn'>
                                 <div className='relative'>
                                     <p className='absolute bg-[#fdb61b] bottom-0 p-1'>{item.Status}</p>
                                     <p className='absolute bg-[#fdb61b] bottom-0 right-0 p-1'>{item.price}</p>

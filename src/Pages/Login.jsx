@@ -1,15 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import { Helmet } from "react-helmet-async";
+import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+import 'animate.css';
+
 
 const Login = () => {
-    const {user,
+    const { user,
         login,
         looding,
         loginwithgoogle,
-        loginwithgithub} = useContext(AuthContext)
+        loginwithgithub } = useContext(AuthContext)
 
     const loginhandle = (e) => {
         e.preventDefault();
@@ -23,7 +27,7 @@ const Login = () => {
     const goglelogin = () => {
         loginwithgoogle()
             .then(() => {
-    
+
             })
             .catch(error => toast.error(error.message))
 
@@ -33,11 +37,11 @@ const Login = () => {
             .catch(error => toast.error(error.message))
 
     }
-
+    const [type, settype] = useState('password')
 
     return (
 
-        <div>
+        <div className="animate__backInDown">
             <Helmet>
                 <title>Login</title>
             </Helmet>
@@ -46,7 +50,7 @@ const Login = () => {
                 <div className="hero mb-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
 
-                        <div className="card shrink-0 max-w-sm shadow-2xl bg-base-100 p-10 w-80 sm:w-96">
+                        <div className="card shrink-0 max-w-sm shadow-2xl bg-base-100 p-10 w-80 sm:w-96 ">
                             <h1 className='text-3xl mb-2 font-semibold'>Login your account</h1>
                             <form onSubmit={loginhandle} className="card-body mb-2 p-0">
                                 <div className="form-control">
@@ -59,7 +63,15 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+
+                                    <div className='flex items-center input input-bordered'>
+                                        <input name='password' type={type} placeholder="password" className="w-full" required />
+                                       {
+                                        type == "password" ? <FaEyeSlash onClick={()=> settype("text")} /> : <FaEye onClick={()=> settype("password")} />
+                                       }  
+
+                                    </div>
+                                    
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>

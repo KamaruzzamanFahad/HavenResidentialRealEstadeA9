@@ -39,3 +39,7 @@ footer{
 .read-the-docs {
   color: #888;
 }
+.active {
+  background-color: rgba(178, 178, 178, 0.646);
+  border-radius: 10px;
+}

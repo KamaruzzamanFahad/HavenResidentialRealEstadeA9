@@ -8,12 +8,16 @@ const Navber = () => {
 
     const links = [
         <>
-            <NavLink key="home" to={'/'}><li><a>Home</a></li></NavLink>
-            <NavLink key="profile" to={'/profile'}><li><a>Profile</a></li></NavLink>
+            <NavLink activeClassName="active" key="home" to={'/'}><li><a className='font-semibold text-blue-900'>Home</a></li></NavLink>
+
+            <NavLink activeClassName="active" key="profile" to={'/profile'}><li><a className='font-semibold text-blue-900'>Update Profile</a></li></NavLink>
+
+            <NavLink activeClassName="active" key="profile" to={'/contact'}><li><a className='font-semibold text-blue-900'>Contact Us</a></li></NavLink>
+
         </>
     ]
 
- 
+
     const { user, logout } = useContext(AuthContext)
     return (
         <div className="navbar py-7">
@@ -22,7 +26,7 @@ const Navber = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul  tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {links}
                     </ul>
                 </div>
@@ -36,10 +40,10 @@ const Navber = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                   
-                        <a 
+
+                        <a
                             data-tooltip-id="my-tooltip"
-                            data-tooltip-content= {`${user.displayName}`}
+                            data-tooltip-content={`${user.displayName}`}
                             data-tooltip-place="left"
                         >
                             <img src={user.photoURL} width={'40px'} alt="" />

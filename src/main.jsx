@@ -17,6 +17,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Protect from './Pages/Protect.jsx';
 import Detil from './Pages/Detil.jsx';
 import Profile from './Pages/Profile.jsx';
+import Contact from './Pages/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path:'/profile',
         element:<Protect><Profile></Profile></Protect>
+      },
+      {
+        path:'/contact',
+        element:<Protect><Contact></Contact></Protect>
       }
     ]
   },

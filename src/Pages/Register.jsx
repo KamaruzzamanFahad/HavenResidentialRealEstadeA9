@@ -1,17 +1,20 @@
 import Home from './Home';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { AuthContext } from "../Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet-async";
+import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+
 
 const Register = () => {
 
     const { registerempass, updateuserinfo, looding, user } = useContext(AuthContext);
     const navigate = useNavigate();
-    
-    
+
+
     const reginhandle = (e) => {
         e.preventDefault();
         const Name = e.target.Name.value;
@@ -19,12 +22,11 @@ const Register = () => {
         const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
-        console.log(Name, email, photoURL, password, regex.test(password))
         if (regex.test(password)) {
             registerempass(email, password)
                 .then(() => {
                     toast.success("Registration done, prifile updating please wait");
-                    
+
                     updateuserinfo(Name, photoURL)
                         .catch(error => {
                             toast.error(error.message)
@@ -36,6 +38,8 @@ const Register = () => {
         }
 
     }
+
+    const [type,settype] = useState('password')
 
 
 
@@ -76,7 +80,13 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                                    <div className='flex items-center input input-bordered'>
+                                        <input name='password' type={type} placeholder="password" className="w-full" required />
+                                       {
+                                        type == "password" ? <FaEyeSlash onClick={()=> settype("text")} /> : <FaEye onClick={()=> settype("password")} />
+                                       }  
+
+                                    </div>
                                 </div>
                                 <div className="form-control mt-1">
                                     <button className="btn w-fu btn-primary bg-blue-500 text-white outline-none border-none">Register</button>

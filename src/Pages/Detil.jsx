@@ -8,8 +8,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { LuCalendarCheck } from "react-icons/lu";
 import { FaCheck } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
+import { BiArea } from "react-icons/bi";
 
 const Detil = () => {
+   
     const locationdata = useLocation();
     const { Image,
         estate_title,
@@ -29,6 +32,9 @@ const Detil = () => {
 
     return (
         <div className='flex flex-col md:flex-row justify-center items-center md:items-start'>
+            <Helmet>
+                <title>Estade Detils</title>
+            </Helmet>
             <div className='w-full md:w-[65%] pr-5'>
                 <div className='relative'>
                     <p className='absolute bg-[#fdb61b] bottom-0 p-2 px-5 text-2xl font-semibold'>{Status}</p>
@@ -37,6 +43,10 @@ const Detil = () => {
                 </div>
                 <div className='bg-[#00000009]'>
                     <ul className='flex flex-wrap gap-8 justify-center p-3'>
+                        <div className='flex gap-1 items-center'>
+                            <BiArea className='text-blue-500 ' />
+                            <li className='font-semibold'>{Area}</li>
+                        </div>
                         {
                             facilities.map((item, i) => (
                                 <div className='flex gap-1 items-center'>

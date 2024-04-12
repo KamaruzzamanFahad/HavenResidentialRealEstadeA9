@@ -31,7 +31,6 @@ const Authprovider = ({ children }) => {
     onAuthStateChanged(auth, user => {
         if (user) {
             setuser(user)
-            console.log(user);
             setlooding(false);
         } else {
             setuser(null)

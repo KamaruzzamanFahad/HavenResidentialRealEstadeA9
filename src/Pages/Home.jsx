@@ -73,7 +73,7 @@ const Home = () => {
                 <div className='grid grid-cols-1 justify-center items-center md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10'>
                     {
                         estade.map((item, i) => (
-                            <div className='bg-[#ffffff] p-4 pb-6 rounded-lg'>
+                            <div key={i} className='bg-[#ffffff] p-4 pb-6 rounded-lg'>
                                 <div className='relative'>
                                     <p className='absolute bg-[#fdb61b] bottom-0 p-1'>{item.Status}</p>
                                     <p className='absolute bg-[#fdb61b] bottom-0 right-0 p-1'>{item.price}</p>
@@ -96,7 +96,7 @@ const Home = () => {
                                     <ul className='list-disc ml-8'>
                                         {
                                             item.facilities.map((ita, i) => (
-                                                <li>{ita}</li>
+                                                <li key={i}>{ita}</li>
                                             ))
                                         }
                                         {

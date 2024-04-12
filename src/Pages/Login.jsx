@@ -17,7 +17,6 @@ const Login = () => {
         const password = e.target.password.value;
         login(email, password)
             .catch(error => {
-                console.log(error.message)
                 toast(error.message)
             })
     }

@@ -1,19 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Authprovider';
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
     const { user, updateuserinfo } = useContext(AuthContext);
 
     const { email, displayName, photoURL } = user;
-    
+
     const updatehandle = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const photo = e.target.photo.value;
-        updateuserinfo(name,photo)
+        updateuserinfo(name, photo)
     }
     return (
         <div className='flex flex-col justify-center items-center'>
+            <Helmet>
+                <title>Profile</title>
+            </Helmet>
             <h1 className='mb-8'>Profilel</h1>
             <img src={photoURL} alt="" />
             <form onSubmit={updatehandle} className='w-full md:w-[50%]' action="">

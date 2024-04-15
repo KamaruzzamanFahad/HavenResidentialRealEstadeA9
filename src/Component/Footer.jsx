@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='ml-[-60px]'>
+            <div className='ml-[-60px] w-[60%] sm:w-auto '>
                 <div className='flex items-center gap-2'>
                     <div className='bg-yellow-500 p-[5px] h-1 w-1'></div>
                     <p className='font-extrabold text-xl'>Contact Us
@@ -50,7 +50,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <form>
+            <form >
                 <div className='flex items-center gap-2'>
                     <div className='bg-yellow-500 p-[5px] h-1 w-1'></div>
                     <p className='font-extrabold text-xl'>Newsletter
@@ -60,9 +60,9 @@ const Footer = () => {
                     <label className="label mt-2">
                         <span className="label-text">Enter your e-mail to get the latest news of MyHome</span>
                     </label>
-                    <div className="join mt-2">
-                        <input type="text" placeholder="Your e-mail" className="input input-bordered join-item" />
-                        <button className="bg-blue-500 text-white rounded-l-none ml-[-2px]">Subscribe</button>
+                    <div className="join mt-2 bg-red-600 w-[95%]">
+                        <input type="text" placeholder="Your e-mail" className="input input-bordered join-item w-full" />
+                        <button disabled className="bg-blue-500 text-white rounded-l-none ml-[-2px]">Subscribe</button>
                     </div>
                     <img src="socai.png" width={'30%'} alt="" className='mt-4' />
                 </fieldset>

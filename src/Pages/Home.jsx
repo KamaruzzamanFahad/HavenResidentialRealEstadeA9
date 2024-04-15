@@ -10,6 +10,7 @@ import { useLoaderData,useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import 'animate.css';
 
+
 const Home = () => {
 
 
@@ -41,7 +42,16 @@ const Home = () => {
             </Helmet>
 
            
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            <Swiper  
+            navigation={true} 
+            modules={[Navigation]} 
+            loop={true}
+            className="mySwiper z-0"
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: true,
+            }}
+            >
                 <SwiperSlide>
                     <div id="slide1" className="carousel-item relative h-[35vw] w-full">
                         <img src="slid1.jpg" className="w-full" />
@@ -67,8 +77,8 @@ const Home = () => {
             <div>
                 <div className='flex flex-col md:flex-row justify-center items-center py-10 gap-5'>
                     <input type="text" placeholder='Location' name="" id="" className=' border border-solid border-[#0000004e] p-[11px] rounded-lg outline-none w-full md:w-auto' />
-                    <select onChange={selected} className=" select select-bordered w-full md:w-auto">
-                        <option disabled selected>Chose Catagorys</option>
+                    <select defaultValue={'Chose Catagorys'} onChange={selected} className=" select select-bordered w-full md:w-auto">
+                        <option disabled>Chose Catagorys</option>
                         <option>All</option>
                         <option>Single-family homes</option>
                         <option>Townhouses</option>

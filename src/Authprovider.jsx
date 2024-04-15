@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from './Utility/config';
 
 export const AuthContext = createContext(null)
@@ -14,7 +14,7 @@ const Authprovider = ({ children }) => {
 
 
     const login = (email, password) => {
-        setlooding(true);
+        // setlooding(true);
         return signInWithEmailAndPassword(auth, email, password)
 
     }
@@ -25,7 +25,7 @@ const Authprovider = ({ children }) => {
         return signInWithPopup(auth,githubprovider)
     }
     const registerempass = (email, password) => {
-        setlooding(true);
+        // setlooding(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     onAuthStateChanged(auth, user => {
@@ -37,13 +37,25 @@ const Authprovider = ({ children }) => {
             setlooding(false);
         }
     })
-    const updateuserinfo = (name, photourl) => {
-        setlooding(true);
-        return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photourl,
-        })
-    }
+    
+    // useEffect(()=>{
+    //     const unSubscribe = onAuthStateChanged(auth, user =>{
+    //     setuser(user);
+    //     setlooding(false)
+    //     })
+    //     return() =>{
+    //         unSubscribe();
+    //     }
+    // },[])
+
+
+
+    // const updateuserinfo = (name, photourl) => {
+    //     // setlooding(true);
+    //     return 
+    // }
+    
+   
     const logout = () => {
         signOut(auth);
     }
@@ -51,10 +63,10 @@ const Authprovider = ({ children }) => {
 
 
     const authinfo = {
+        auth,
         user,
         login,
         registerempass,
-        updateuserinfo,
         looding,
         logout,
         loginwithgoogle,

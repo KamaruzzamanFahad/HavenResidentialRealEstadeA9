@@ -17,7 +17,7 @@ const Contact = () => {
                         <p>Client Support:</p>
                         <div className='flex justify-start items-center gap-3 mt-3'>
                             <IoCallSharp className='text-3xl text-blue-500' />
-                            <h2 className='text-3xl'>01000-005-364</h2>
+                            <h2 className='text-2xl'>01000-005-364</h2>
                         </div>
                     </div>
                     <hr  />
@@ -25,7 +25,7 @@ const Contact = () => {
                         <p>E-mail:</p>
                         <div className='flex justify-start items-center gap-3 mt-3'>
                             <MdOutlineEmail  className='text-3xl text-blue-500' />
-                            <h2 className='text-3xl'>info@havanhomes.org</h2>
+                            <h2 className='text-2xl'>info@havanhomes.org</h2>
                         </div>
                     </div>
                     <hr />
@@ -33,7 +33,7 @@ const Contact = () => {
                         <p>Main Office:</p>
                         <div className='flex justify-start items-center gap-3 mt-3'>
                             <FaLocationDot className='text-3xl text-blue-500' />
-                            <h2 className='text-3xl'>4035 Grand Ave, narikal
+                            <h2 className='text-2xl'>4035 Grand Ave, narikal
                             <br />
                             Uganda,Nsa Way, FL 13345</h2>
                         </div>

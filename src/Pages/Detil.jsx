@@ -1,23 +1,23 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { MapContainer } from 'react-leaflet/MapContainer'
-import { TileLayer } from 'react-leaflet/TileLayer'
+
+
 import { useMap } from 'react-leaflet/hooks'
-import { Marker, Popup } from 'leaflet';
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { LuCalendarCheck } from "react-icons/lu";
 import { FaCheck } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import { BiArea } from "react-icons/bi";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Detil = () => {
-   
+
     const locationdata = useLocation();
     const { Image,
         estate_title,
         id,
-        segment_name,
         description,
         price,
         Status,
@@ -25,7 +25,7 @@ const Detil = () => {
         location,
         facilities,
         category, } = locationdata.state;
-    const position = [51.505, -0.09]
+    const position = [23.684994, 90.356331]
 
     const { register, handleSubmit } = useForm();
     const [data, setData] = useState("");
@@ -49,7 +49,7 @@ const Detil = () => {
                         </div>
                         {
                             facilities.map((item, i) => (
-                                <div className='flex gap-1 items-center'>
+                                <div key={i} className='flex gap-1 items-center'>
                                     <FaCheck className='text-green-500 ' />
                                     <li className='font-semibold'>{item}</li>
                                 </div>
@@ -58,20 +58,23 @@ const Detil = () => {
                     </ul>
                 </div>
                 <h1 className='text-4xl font-extrabold py-3'>{estate_title}</h1>
+                <p className='font-bold'>{category}</p>
                 <p className='mb-20'>{description}</p>
 
-
-                {/* <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                     <Marker position={position}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker> 
-                </MapContainer> */}
+                <p className='font-bold'>Location: {location}</p>
+                <div  className='w-[95%] h-[500px] bg-red-500 mb-20'>
+                    <MapContainer center={position} zoom={13} scrollWheelZoom={false} className='w-full h-[500px]'>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={position}>
+                            <Popup>
+                                This is the popup content. You can customize it!
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
+                </div>
             </div>
 
             <div className='w-full md:w-[35%] bg-white p-4 rounded-sm'>

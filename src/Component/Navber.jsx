@@ -6,27 +6,26 @@ import { Tooltip } from 'react-tooltip'
 
 const Navber = () => {
 
-    const links = [
+    const links = 
         <>
-            <NavLink activeClassName="active" key="home" to={'/'}><li><a className='font-semibold text-blue-900'>Home</a></li></NavLink>
+            <NavLink activeclassname="active" key="home" to={'/'}><li><span className='font-semibold text-blue-900'>Home</span></li></NavLink>
 
-            <NavLink activeClassName="active" key="profile" to={'/profile'}><li><a className='font-semibold text-blue-900'>Update Profile</a></li></NavLink>
+            <NavLink activeclassname="active" key="profile" to={'/profile'}><li><span className='font-semibold text-blue-900'>Update Profile</span></li></NavLink>
 
-            <NavLink activeClassName="active" key="profile" to={'/contact'}><li><a className='font-semibold text-blue-900'>Contact Us</a></li></NavLink>
+            <NavLink activeclassname="active" key="Contact" to={'/contact'}><li><span className='font-semibold text-blue-900'>Contact Us</span></li></NavLink>
 
         </>
-    ]
-
+   
 
     const { user, logout } = useContext(AuthContext)
     return (
-        <div className="navbar py-7">
+        <div  className="navbar py-7 z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
                         {links}
                     </ul>
                 </div>
@@ -50,7 +49,7 @@ const Navber = () => {
                         </a>
                         <a onClick={logout} className="btn">Log Out</a>
                     </>
-                        : <Link to={'/login'}><a className="btn">Log In</a></Link>
+                        : <Link to={'/login'}><button className="btn">Log In</button></Link>
                 }
                 <Tooltip id="my-tooltip" />
 

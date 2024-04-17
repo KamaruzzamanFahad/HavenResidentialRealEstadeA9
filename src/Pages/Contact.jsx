@@ -2,11 +2,14 @@ import React from 'react';
 import { IoCallSharp } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
     return (
         <div>
+            <Helmet>
+                <title>Contact Us</title>
+            </Helmet>
             <img src="contact.jpg" className='w-full h-60' alt="" />
 
             <div className='flex flex-col md:flex-row justify-between items-start mb-20 mt-16 gap-7'>
@@ -20,11 +23,11 @@ const Contact = () => {
                             <h2 className='text-2xl'>01000-005-364</h2>
                         </div>
                     </div>
-                    <hr  />
+                    <hr />
                     <div className='mt-6 mb-6'>
                         <p>E-mail:</p>
                         <div className='flex justify-start items-center gap-3 mt-3'>
-                            <MdOutlineEmail  className='text-3xl text-blue-500' />
+                            <MdOutlineEmail className='text-3xl text-blue-500' />
                             <h2 className='text-2xl'>info@havanhomes.org</h2>
                         </div>
                     </div>
@@ -34,8 +37,8 @@ const Contact = () => {
                         <div className='flex justify-start items-center gap-3 mt-3'>
                             <FaLocationDot className='text-3xl text-blue-500' />
                             <h2 className='text-2xl'>4035 Grand Ave, narikal
-                            <br />
-                            Uganda,Nsa Way, FL 13345</h2>
+                                <br />
+                                Uganda,Nsa Way, FL 13345</h2>
                         </div>
                     </div>
                 </div>

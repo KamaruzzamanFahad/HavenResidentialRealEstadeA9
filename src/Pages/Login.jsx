@@ -20,6 +20,9 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         login(email, password)
+            .then(() => {
+                toast.success("LOGIN SUCCESSFUL")
+            })
             .catch(error => {
                 toast(error.message)
             })
@@ -27,13 +30,14 @@ const Login = () => {
     const goglelogin = () => {
         loginwithgoogle()
             .then(() => {
-
+                toast.success("LOGIN SUCCESSFUL")
             })
             .catch(error => toast.error(error.message))
 
     }
     const gitlogin = () => {
         loginwithgithub()
+            .then(() => toast.success("LOGIN SUCCESSFUL"))
             .catch(error => toast.error(error.message))
 
     }
@@ -45,7 +49,7 @@ const Login = () => {
             <Helmet>
                 <title>Login</title>
             </Helmet>
-            <ToastContainer />
+            
             <div>
                 <div className="hero mb-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -66,12 +70,12 @@ const Login = () => {
 
                                     <div className='flex items-center input input-bordered'>
                                         <input name='password' type={type} placeholder="password" className="w-full" required />
-                                       {
-                                        type == "password" ? <FaEyeSlash onClick={()=> settype("text")} /> : <FaEye onClick={()=> settype("password")} />
-                                       }  
+                                        {
+                                            type == "password" ? <FaEyeSlash onClick={() => settype("text")} /> : <FaEye onClick={() => settype("password")} />
+                                        }
 
                                     </div>
-                                    
+
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>

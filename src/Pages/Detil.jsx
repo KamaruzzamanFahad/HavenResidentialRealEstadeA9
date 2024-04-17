@@ -11,8 +11,15 @@ import { FaCheck } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import { BiArea } from "react-icons/bi";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-
+import {Icon} from 'leaflet';
 const Detil = () => {
+
+    const icon = new Icon({
+        iconUrl: '/mark.png',
+        iconSize: [42, 49], // size of the icon
+        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    })
 
     const locationdata = useLocation();
     const { Image,
@@ -62,13 +69,13 @@ const Detil = () => {
                 <p className='mb-20'>{description}</p>
 
                 <p className='font-bold'>Location: {location}</p>
-                <div  className='w-[95%] h-[500px] bg-red-500 mb-20'>
+                <div className='w-[95%] h-[500px] bg-red-500 mb-20'>
                     <MapContainer center={position} zoom={13} scrollWheelZoom={false} className='w-full h-[500px]'>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        <Marker position={position}>
+                        <Marker position={position} icon={icon}>
                             <Popup>
                                 This is the popup content. You can customize it!
                             </Popup>

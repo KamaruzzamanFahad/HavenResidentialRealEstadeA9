@@ -35,7 +35,7 @@ const Profile = () => {
     return (
         <div className='flex flex-col justify-center items-center'>
             <Helmet>
-                <title>Profile</title>
+                <title>Update Profile</title>
             </Helmet>
             <h1 className='mb-8'>Profilel</h1>
             <img className='w-[100px] h-[100px] rounded-full' src={photoURL} alt="" />

@@ -7,11 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet-async";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
-
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
-    const { registerempass, updateuserinfo, looding, user } = useContext(AuthContext);
+    const { registerempass, updateuserinfo, looding, user,auth } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -26,10 +26,17 @@ const Register = () => {
             registerempass(email, password)
                 .then(() => {
                     toast.success("Registration done, prifile updating please wait");
-
-                    updateuserinfo(Name, photoURL)
-                        .catch(error => {
-                            toast.error(error.message)
+                    console.log('regi done ')
+                    updateProfile(auth.currentUser, {
+                        displayName: Name,
+                        photoURL: photoURL,
+                    })
+                        .then(() => {
+                            toast.success("LOGIN SUCCESSFUL")
+                            console.log('log done ')
+                        })
+                        .catch((error) => {
+                            toast.success(error.massage)
                         })
                 })
                 .catch(error => toast.error(error.message))
@@ -49,7 +56,7 @@ const Register = () => {
             <Helmet>
                 <title>Register</title>
             </Helmet>
-            <ToastContainer />
+            
             <div>
                 <div className="hero mb-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
